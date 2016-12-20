@@ -13,7 +13,10 @@ public class TermParser {
         final ArrayList<HashMap> parsedTerms = new ArrayList<>();
         
         for (String question : questions) {
-            parsedTerms.add(QuestionParser.parseTermsFromSentence(question.toLowerCase()));
+            parsedTerms.add(
+                    QuestionParser.parseTermsFromSentence(
+                            RegexHelper.applyRegexToSentence(question.toLowerCase()))
+            );
         }
         
         return parsedTerms;

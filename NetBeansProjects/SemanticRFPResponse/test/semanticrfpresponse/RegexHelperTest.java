@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author kharper
  */
-public class SemanticRFPResponseTest {
+public class RegexHelperTest {
     
-    public SemanticRFPResponseTest() {
+    public RegexHelperTest() {
     }
     
     @BeforeClass
@@ -38,19 +38,15 @@ public class SemanticRFPResponseTest {
     }
 
     /**
-     * Test of main method, of class SemanticRFPResponse.
+     * Test of applyRegexToSentence method, of class RegexHelper.
      */
     @Test
-    public void testMainOneArg() {
-        System.out.println("main with 1 arg");
-        String[] args = {"/Users/kharper/questions.txt"};
-        SemanticRFPResponse.main(args);
+    public void testApplyRegexToSentence() {
+        System.out.println("applyRegexToSentence");
+        String sentence = "This is a test to confirm that the regex pattern is still valid.";
+        String expResult = "   test  confirm   regex pattern  still valid";
+        String result = RegexHelper.applyRegexToSentence(sentence.toLowerCase());
+        assertEquals(expResult, result);
     }
     
-    @Test
-    public void testMainTwoArgs() {
-        System.out.println("main with 2 args");
-        String[] args = {"/Users/kharper/questions.txt", "/Users/kharper/responses.txt"};
-        SemanticRFPResponse.main(args);
-    }
 }
